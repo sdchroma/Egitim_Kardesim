@@ -1,1 +1,1 @@
-# Egitim_Kardesim
+# Egitim_Kardesligi
