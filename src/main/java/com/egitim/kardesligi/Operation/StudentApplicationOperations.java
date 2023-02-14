@@ -8,11 +8,12 @@ import java.text.SimpleDateFormat;
 import com.egitim.kardesligi.Entity.CreateStudentApplicationModel;
 
 public class StudentApplicationOperations {
-    public static void CreateStudentApplication(CreateStudentApplicationModel studentApplications) throws Exception {
+    public static Boolean CreateStudentApplication(CreateStudentApplicationModel studentApplications) throws Exception {
         ConfigurationPropertiesOperations _cpo = new ConfigurationPropertiesOperations();
         String url = _cpo.GetProperties(_cpo.GetPropertiesFile("WEB_PROPERTY_FILE"), "URL_EGITIM");
         String username = _cpo.GetProperties(_cpo.GetPropertiesFile("WEB_PROPERTY_FILE"), "USERNAME_EGITIM");
         String password = _cpo.GetProperties(_cpo.GetPropertiesFile("WEB_PROPERTY_FILE"), "PASSWORD_EGITIM");
+
 
         String _bulkInsertQuery="INSERT INTO STUDENT_CRAM_SCHOOL_APPLICATIONS(`IDENTITY_NUMBER`, `NAME`, `SURNAME`, `BIRTHDAY`, `PHONE_NUMBER`, `CRAM_SCHOOL_ID`, `CLASS_LEVEL_ID`, `CREATED_BY`, `MODIFIED_BY`) VALUES('{IDENTITY_NUMBER}','{NAME}','{SURNAME}','{BIRTHDAY}','{PHONE_NUMBER}',{CRAM_SCHOOL_ID},{CLASS_LEVEL_ID},1,1);";
         _bulkInsertQuery = _bulkInsertQuery.replace("{IDENTITY_NUMBER}", studentApplications.getIdentityNumber());
@@ -30,5 +31,10 @@ public class StudentApplicationOperations {
         int _postBulkInsertResult = _statement.executeUpdate(_bulkInsertQuery);
         _statement.close();
         _connection.close();
+        return true;
+    }
+
+    public static Boolean IsStudentIdentityExist(String identityNumber){
+        return true;
     }
 }
