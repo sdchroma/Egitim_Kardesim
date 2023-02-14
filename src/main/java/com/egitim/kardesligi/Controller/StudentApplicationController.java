@@ -14,6 +14,7 @@ import com.egitim.kardesligi.Operation.StudentApplicationOperations;
 @RestController
 @RequestMapping("/egitim")
 public class StudentApplicationController {
+    
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/student/application")
     public ResponseEntity<String> CreateStudentApplication(@RequestBody CreateStudentApplicationModel studentApplications) throws Exception{
