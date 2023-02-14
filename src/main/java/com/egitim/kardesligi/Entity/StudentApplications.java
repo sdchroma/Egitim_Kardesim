@@ -9,6 +9,7 @@ public class StudentApplications {
     private String name;
     private String surname;
     private Date birthday;
+    private String phoneNumber;
     private Long cramSchoolId;
     private Long classLevelId;
     private Long createdBy;
@@ -45,6 +46,12 @@ public class StudentApplications {
     }
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     public Long getCramSchoolId() {
         return cramSchoolId;
